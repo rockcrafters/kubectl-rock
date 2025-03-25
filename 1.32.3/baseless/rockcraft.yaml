@@ -1,16 +1,11 @@
 name: kubectl-baseless
-# see https://documentation.ubuntu.com/rockcraft/en/latest/explanation/bases/
-# for more information about bases and using 'bare' bases for chiselled rocks
-build-base: ubuntu@24.04 # the base environment for this rock
+build-base: ubuntu@24.04
 base: bare
-version: 1.32.3 # just for humans. Semantic versioning is recommended
-summary: Kubectl rock with a full base and overlay packages # 79 char long summary
+version: 1.32.3
+summary: kubectl rock with bare base
 description: |
-    This is kubectl-full's description. You have a paragraph or two to tell the
-    most important story about it. Keep it under 100 words though,
-    we live in tweetspace and your description wants to look good in the
-    container registries out there.
-platforms: # the platforms this rock should be built on and run on
+    This is kubectl rock with bare base and a fixed version of 1.32.3.
+platforms:
     amd64:
     arm64:
 
