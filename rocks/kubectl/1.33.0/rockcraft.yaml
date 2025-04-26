@@ -1,0 +1,28 @@
+name: kubectl
+build-base: ubuntu@24.04
+base: bare
+version: 1.33.0
+summary: kubectl rock with bare base
+description: |
+    This is kubectl rock with bare base and a fixed version of 1.32.3.
+platforms:
+    amd64:
+    arm64:
+
+parts:
+    kubectl:
+        plugin: go
+        source: https://github.com/kubernetes/kubernetes.git
+        source-tag: v1.33.0
+        source-depth: 1
+        build-snaps:
+          - go/1.24/stable
+        build-packages:
+          - make
+          - rsync
+        override-build: |
+          make kubectl
+          install -D -m755 _output/bin/kubectl ${CRAFT_PART_INSTALL}/bin/kubectl
+        stage:
+          - bin/kubectl
+
